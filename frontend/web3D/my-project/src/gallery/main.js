@@ -30,6 +30,7 @@ const boxGeometry1 = new THREE.BoxGeometry(3, 2, 0.8);
 const boxMaterial1 = new THREE.MeshBasicMaterial({ color: 0x000000 }); 
 const box1 = new THREE.Mesh(boxGeometry1, boxMaterial1);
 box1.name = "Box 1";
+box1.description = "我是暴君杨承琪"
 box1.position.set(3.6, 1, 0.5);
 sceneModel.add(box1);
 
@@ -37,6 +38,7 @@ const boxGeometry2 = new THREE.BoxGeometry(1, 2, 2);
 const boxMaterial2 = new THREE.MeshBasicMaterial({ color: 0x000000 }); 
 const box2 = new THREE.Mesh(boxGeometry2, boxMaterial2);
 box2.name = "Box 2";
+box2.description = "我是暴君杨承琪"
 box2.position.set(11, 1, 3);
 sceneModel.add(box2);
 
@@ -44,6 +46,7 @@ const boxGeometry3 = new THREE.BoxGeometry(10, 2, 1);
 const boxMaterial3 = new THREE.MeshBasicMaterial({ color: 0x000000 }); 
 const box3 = new THREE.Mesh(boxGeometry3, boxMaterial3);
 box3.name = "Box 3";
+box3.description = "我是暴君杨承琪"
 box3.position.set(5, 1, 5);
 sceneModel.add(box3);
 
@@ -51,6 +54,7 @@ const boxGeometry4 = new THREE.BoxGeometry(2, 2, 1);
 const boxMaterial4 = new THREE.MeshBasicMaterial({ color: 0x000000 }); 
 const box4 = new THREE.Mesh(boxGeometry4, boxMaterial4);
 box4.name = "Box 4";
+box4.description = "我是暴君杨承琪"
 box4.position.set(-1, 1, 5);
 sceneModel.add(box4);
 
@@ -58,6 +62,7 @@ const boxGeometry5 = new THREE.BoxGeometry(2, 2, 4);
 const boxMaterial5 = new THREE.MeshBasicMaterial({ color: 0x000000 }); 
 const box5 = new THREE.Mesh(boxGeometry5, boxMaterial5);
 box5.name = "Box 5";
+box5.description = "我是暴君杨承琪"
 box5.position.set(-3.5, 1, 2);
 sceneModel.add(box5);
 
@@ -65,6 +70,7 @@ const boxGeometry6 = new THREE.BoxGeometry(2, 2, 2);
 const boxMaterial6 = new THREE.MeshBasicMaterial({ color: 0x000000 }); 
 const box6 = new THREE.Mesh(boxGeometry6, boxMaterial6);
 box6.name = "Box 6";
+box6.description = "你好！撒低级金卡卡是的撒旦金克拉"
 box6.position.set(-3.5, 1, -1);
 sceneModel.add(box6);
 
@@ -72,6 +78,7 @@ const boxGeometry7 = new THREE.BoxGeometry(2, 2, 2);
 const boxMaterial7 = new THREE.MeshBasicMaterial({ color: 0x000000 }); 
 const box7 = new THREE.Mesh(boxGeometry7, boxMaterial7);
 box7.name = "Box 7";
+box7.description = "歌手:rihanna 专辑:anti 歌曲名:workRihanna的新专辑《ANTi》是一次令人惊喜的音乐之旅，展现了她在音乐创作上的独特才华和多元风格.从音乐风格上看,ANTi展现了Rihanna对不同音乐类型的驾驭能力。专辑中既有充满节奏感的流行舞曲,如Work和Needed_Me,也有充满深情的抒情歌曲,如《Love On The Brain和Consideration.这些多样化的曲风展示了Rihanna在音乐创作上的多面性,同时也满足了不同听众的喜好。在歌词内容上，Rihanna在《ANTi》中大胆表达了自己的观点和态度。她通过歌词探讨了爱情、自由、社会议题等话题,展示了她的独立思考和敏锐的社会洞察力。例如，在歌曲《Love On The Brain》中，她表达了对爱情的渴望和追求，而在《Consideration》中，她则呼吁人们关注社会问题和环保议题。这些歌词内容不仅增加了专辑的艺术价值，也引发了人们对这些议题的思考。";
 box7.position.set(1, 1, -2.5);
 sceneModel.add(box7);
 
@@ -515,7 +522,8 @@ function checkForObjectsInView() {
 document.addEventListener('keydown', (event) => {
     if (event.key === 'Enter' && infoDiv.style.display === 'block') {
         if (focusedObject) {
-            alert(`了解更多的信息：${focusedObject.name}`);
+            alert(`了解更多的信息：${focusedObject.name}
+                    我是${focusedObject.description}`);
         }
     }
 });
