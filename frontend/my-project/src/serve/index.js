@@ -1,15 +1,11 @@
-var express = require('express');
-var app = express();
-var http = require('http').createServer(app);
-var io = require('socket.io')(http, {
-    cors: {
-        origin: "http://localhost:3001", // 确保此处设置正确
-        methods: ["GET", "POST"]
-    }
-});
+const express = require('express');
+const bodyParser = require('body-parser');
+const OpenAI = require('openai');
+const cors = require('cors');
 
-const { response } = require("express");   // 解析Json请求体
-const OpenAI = require("openai");   //引入OpenAI
+const app = express();
+app.use(bodyParser.json()); // 解析Json请求体
+app.use(cors());
 
 // 配置OpenAI客户端
 const client = new OpenAI({
@@ -17,22 +13,22 @@ const client = new OpenAI({
     baseURL: "https://api.moonshot.cn/v1",
 });
 
-// 通过post实现AI
-app.post('/chat', async (req, res) => {
-  const { message } =req.body;
-  try {
-    const completion = await client.chat.completions.create({
-      model: "moonshot-v1-8k",
-      messages: [{
-        role: "system", content: "你是 Kimi",
-        role: "user", content: message
-      }],
-      temperature: 0.3
-    });
-    res.json({ response: completion.choices[0].message.content });
-  } catch (error) {
-    res.status(500).json({ error: error.message});
-  }
+// AI聊天端点
+app.post('/ai-chat', async (req, res) => {
+    const { message } = req.body;
+    try {
+        const completion = await client.chat.completions.create({
+            model: "moonshot-v1-8k",
+            messages: [
+                { role: "system", content: "你是 Kimi" },
+                { role: "user", content: message }
+            ],
+            temperature: 0.3
+        });
+        res.json({ response: completion.choices[0].message.content });
+    } catch (error) {
+        res.status(500).json({ error: error.message });
+    }
 });
 
 app.get('/', function (req, res) {
@@ -41,9 +37,17 @@ app.get('/', function (req, res) {
 
 let players = {};
 
+const http = require('http').createServer(app);
+const io = require('socket.io')(http, {
+    cors: {
+        origin: "http://localhost:3001", // 确保此处设置正确
+        methods: ["GET", "POST"]
+    }
+});
+
 io.on('connection', function (socket) {
     console.log('client ' + socket.id + ' connected');
-    
+
     // 初始化新玩家
     players[socket.id] = {
         socketid: socket.id,
@@ -61,31 +65,24 @@ io.on('connection', function (socket) {
 
     // 处理玩家移动和旋转
     socket.on('playerMove', function (data) {
-        // console.log('Received playerMove from client ' + socket.id + ': ', data);
         if (players[socket.id]) {
             players[socket.id].position = data.position;
             players[socket.id].rotation = { y: data.rotation.y };
             socket.broadcast.emit('playerMoved', players[socket.id]);
-            // console.log('Player moved: ', players[socket.id]);
         }
     });
-    
 
     // 处理玩家更换模型
     socket.on('changeAvatar', function (data) {
-        // console.log('Received changeAvatar from client ' + socket.id + ': ', data);
         if (players[socket.id]) {
             players[socket.id].avatar = data.avatar;
             socket.broadcast.emit('avatarChanged', players[socket.id]);
-            // console.log('Player changed avatar: ', players[socket.id]);
         }
     });
 
     // 处理聊天信息
     socket.on('chat', function (data) {
-        // console.log('Received chat from client ' + socket.id + ': ', data);
         io.emit('chat', { message: data.message, socketid: socket.id });
-        // console.log('Chat message from ' + socket.id + ': ' + data.message);
     });
 
     // 处理玩家断开连接

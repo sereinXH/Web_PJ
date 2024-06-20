@@ -183,9 +183,8 @@ chatInput.addEventListener('keydown', (event) => {
         const message = chatInput.value;
         if (message) {
             if (message.startsWith('我要和AI聊天 ')) {
-                console.log('AI聊天')
                 const content = message.substring(8); // 去除前缀 
-                //AI_chat(content);
+                AI_chat(content);
             } else {
                 socket.emit('chat', { message });
             }
@@ -193,6 +192,30 @@ chatInput.addEventListener('keydown', (event) => {
         }
     }
 });
+
+async function AI_chat(message) {
+    try {
+        const response = await fetch('http://localhost:3000/ai-chat', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({ message: message })
+        });
+        const data = await response.json();
+        console.log(data.response);
+        //reply = data.response;
+    } catch (error) {
+        console.error('Error:', error);
+    }
+}
+
+function displayAIResponse(response) {
+    const messageElement = document.createElement('div');
+    messageElement.textContent = `AI: ${response}`;
+    chatLog.appendChild(messageElement);
+    chatLog.scrollTop = chatLog.scrollHeight;
+}
 
 
 // 处理玩家数据
