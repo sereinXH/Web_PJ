@@ -182,11 +182,18 @@ chatInput.addEventListener('keydown', (event) => {
     if (event.key === 'Enter') {
         const message = chatInput.value;
         if (message) {
-            socket.emit('chat', { message });
+            if (message.startsWith('我要和AI聊天 ')) {
+                console.log('AI聊天')
+                const content = message.substring(8); // 去除前缀 
+                //AI_chat(content);
+            } else {
+                socket.emit('chat', { message });
+            }
             chatInput.value = '';
         }
     }
 });
+
 
 // 处理玩家数据
 const players = new Map();
@@ -625,6 +632,7 @@ document.querySelector('.play').addEventListener('click', handlePlay);
 document.querySelector('.favorite').addEventListener('click', handleFavorite);
 document.querySelector('.repeat').addEventListener('click', handleRepeat);
 document.querySelector('.volume').addEventListener('click', handleVolume);
+document.querySelector('.seekbar').addEventListener('input', handleSeekBar);
 
 // 检测视线方向上的物体
 function checkForObjectsInView() {
