@@ -1,0 +1,468 @@
+#space-theme .theme-panel {
+    background: #111;
+    padding: 25px 0 15px;
+    position: relative
+}
+
+#space-theme .theme-panel[tab-id="1"] .theme-list {
+    padding-left: 45px
+}
+
+@media (min-width:1420px) {
+    #space-theme .theme-panel .theme-list[name=toutu] {
+        padding-left: 0
+    }
+
+    #space-theme .toutu-item {
+        width: 290px;
+        height: 90px;
+        margin-right: 20px
+    }
+
+    #space-theme .toutu-item.upload-toutu {
+        width: 296px;
+        height: 96px;
+        background-image: url(//s1.hdslb.com/bfs/static/jinkela/space/assets/296x96-normal.png)
+    }
+
+    #space-theme .toutu-item.upload-toutu:hover {
+        background-image: url(//s1.hdslb.com/bfs/static/jinkela/space/assets/296x96-hover.png)
+    }
+
+    #space-theme .theme-ann {
+        margin-right: 13px
+    }
+
+    #space-theme .theme-item {
+        margin-right: 36px
+    }
+}
+
+.h {
+    position: relative;
+    z-index: 10
+}   
+
+.h .wrapper {
+    width: 1000px;
+    height: 310px;
+    margin: 100px auto;
+    position: relative
+}
+
+.h .h-inner {
+    background-position: 50%;
+    background-size: cover;
+    transition: background-image .2s ease, background-size 1s ease;
+    padding-top: 188px;
+    position: relative
+}
+
+.h .avatar-icon {
+    display: block;
+    position: absolute;
+    right: 0;
+    top: 44px;
+    width: 20px;
+    height: 20px;
+    z-index: 9
+}
+
+.h .h-user {
+    position: relative;
+    z-index: 1
+}
+
+.h .h-gradient {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 84px;
+    background-image: url(../../public/images/personal/pic1.png);
+    background-repeat: repeat-x
+}
+
+.h .avatar-cover {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 60px;
+    height: 60px;
+    background: rgba(0, 0, 0, .6);
+    font-size: 12px;
+    color: #fff;
+    line-height: 60px;
+    text-align: center;
+    opacity: 0;
+    border-radius: 50%;
+    transition: opacity .2s
+}
+
+.h .bili-avatar-icon,
+.h .bili-avatar-nft-icon {
+    z-index: 1
+}
+
+.h .nft-avatar-cover {
+    width: 68px;
+    height: 68px;
+    line-height: 68px
+}
+
+.h .bili-avatar-img {
+    border: 2px solid hsla(0, 0%, 100%, .4)
+}
+
+.h .avatar-container:hover .avatar-cover {
+    opacity: 1
+}
+
+.h .avatar-container {
+    position: relative
+}
+
+.h .h-info {
+    margin-left: 20px;
+    padding-bottom: 16px;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-align: center;
+    align-items: center
+}
+
+.h .nft-avatar-cover {
+    width: 68px;
+    height: 68px;
+    line-height: 68px
+}
+
+.h .avatar-container:hover .avatar-cover {
+    opacity: 1
+}
+
+.h .h-basic {
+    color: #fff;
+    font-size: 0;
+    margin-left: 22px
+}
+
+.h .h-basic .h-basic-spacing {
+    margin-top: 6px
+}
+
+.h .h-basic .h-basic-spacing.is-honor {
+    margin: 3px 0
+}
+
+.h .h-basic .honor {
+    overflow: hidden;
+    width: 735px;
+    height: 16px
+}
+
+.h .h-basic .honor .honor-item {
+    float: left;
+    font-size: 12px;
+    color: #fff;
+    line-height: 14px;
+    font-weight: 400;
+    padding: 1px 5px;
+    background: hsla(0, 0%, 100%, .2);
+    box-shadow: inset 0 0 0 0 hsla(0, 0%, 100%, .5);
+    border-radius: 4px;
+    margin-right: 10px;
+    cursor: default
+}
+
+.h .h-basic .honor .cursor {
+    cursor: pointer
+}
+
+.h #h-name {
+    display: inline-block;
+    margin-right: 5px;
+    font-weight: 700;
+    line-height: 18px;
+    font-size: 18px;
+    vertical-align: middle
+}
+
+.h #h-ceritification {
+    background-position: -217px -792px;
+    display: none;
+    width: 11px;
+    height: 18px;
+    margin: 0 1px 0 6px;
+    vertical-align: middle
+}
+
+.h .h-sign {
+    background: transparent;
+    border-radius: 4px;
+    border: none;
+    box-shadow: none;
+    color: hsla(0, 0%, 100%, .8);
+    font-size: 12px;
+    font-family: Microsoft Yahei;
+    line-height: 26px;
+    height: 26px;
+    margin-left: -5px;
+    padding: 0 5px;
+    position: relative;
+    top: -1px;
+    width: 730px;
+    font-weight: 400
+}
+
+.space_input {
+    line-height: 28px;
+    height: 28px;
+    padding: 0 10px;
+    transition: all .3s ease;
+    vertical-align: top;
+    border: 1px solid #ccd0d7;
+    border-radius: 0
+}
+
+.space_input:focus {
+    border-color: #00a1d6
+}
+
+.h #h-sign {
+    background: transparent;
+    border-radius: 4px;
+    border: none;
+    box-shadow: none;
+    color: hsla(0, 0%, 100%, .8);
+    font-size: 12px;
+    font-family: Microsoft Yahei;
+    line-height: 26px;
+    height: 26px;
+    margin-left: -5px;
+    padding: 0 5px;
+    position: relative;
+    top: -1px;
+    width: 730px
+}
+
+.h #h-sign:hover {
+    background: hsla(0, 0%, 100%, .2);
+    box-shadow: 0 0 0 1px hsla(0, 0%, 100%, .5)
+}
+
+.h #h-sign:focus {
+    background: #fff;
+    box-shadow: inset 0 2px 4px rgba(35, 54, 86, .3);
+    color: #6d757a
+}
+
+.h #h-sign::-webkit-input-placeholder {
+    color: #d6dee4
+}
+
+.h #h-sign:-moz-placeholder,
+.h #h-sign::-moz-placeholder {
+    color: #d6dee4
+}
+
+.h #h-sign:-ms-input-placeholder {
+    color: #d6dee4
+}
+
+.h .space-theme-trigger {
+    /* background-image: url(//s1.hdslb.com/bfs/static/jinkela/space/assets/theme-trigger-new.png); */
+    background-position: 0 0;
+    border-radius: 0 4px 0 0;
+    cursor: pointer;
+    width: 58px;
+    height: 49px;
+    transition: opacity .2s ease;
+    position: absolute;
+    top: 0;
+    right: 0
+}
+
+.h .space-theme-trigger .btn {
+    color: #fff
+}
+
+.h .h:hover .space-theme-trigger {
+    opacity: 1
+}
+
+.clearfix {
+    display: block
+}
+
+.clearfix:after {
+    content: ".";
+    display: block;
+    height: 0;
+    clear: both;
+    visibility: hidden
+}
+
+* html .clearfix {
+    height: 1%
+}
+
+.be-scrollbar-wrapper {
+    position: relative
+}
+
+#space-theme .toutu-item {
+    border: 3px solid #555;
+    border-radius: 12px;
+    cursor: pointer;
+    float: left;
+    width: 310px;
+    height: 96px;
+    position: relative;
+    margin: 0 25px 20px 0;
+    background-size: cover;
+    background-position: 50%
+}
+
+#space-theme .toutu-item.active,
+#space-theme .toutu-item.for-sale.active {
+    border-color: #fff;
+    z-index: 2
+}
+
+#space-theme .toutu-item.active .selected-icon,
+#space-theme .toutu-item.for-sale.active .selected-icon {
+    display: block
+}
+
+#space-theme .toutu-item.active .toutu-detail,
+#space-theme .toutu-item.for-sale.active .toutu-detail {
+    border-color: #fff
+}
+
+#space-theme .toutu-item:hover {
+    z-index: 3;
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0
+}
+
+#space-theme .toutu-item:hover .toutu-detail {
+    left: -3px;
+    opacity: 1
+}
+
+#space-theme .toutu-item.upload-toutu {
+    position: relative;
+    width: 316px;
+    height: 102px;
+    color: #99a2aa;
+    border: none;
+    /* background-image: url(//s1.hdslb.com/bfs/static/jinkela/space/assets/396Ã—102-normal.png); */
+    background-repeat: no-repeat;
+    transition: background-image .2s ease, color .2s ease
+}
+
+#space-theme .toutu-item.upload-toutu:after {
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 57px;
+    height: 57px;
+    display: block;
+    /* background-image: url(//s1.hdslb.com/bfs/static/jinkela/space/assets/vip-tag.png); */
+    background-repeat: no-repeat
+}
+
+#space-theme .toutu-item.upload-toutu:hover {
+    color: #fff;
+    /* background-image: url(//s1.hdslb.com/bfs/static/jinkela/space/assets/396Ã—102-hover.png) */
+}
+
+#space-theme .toutu-item.upload-toutu:hover .upload-tips.u-tips2 {
+    display: block
+}
+
+#space-theme .toutu-item.upload-toutu:hover .upload-tips.u-tips1 {
+    display: none
+}
+
+#space-theme .toutu-item.upload-toutu .upload-content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%)
+}
+
+#space-theme .toutu-item.upload-toutu .upload-icon {
+    width: 46px;
+    height: 26px;
+    margin: 0 auto;
+    /* background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAC4AAAAaCAYAAADIUm6MAAABqUlEQVR42mNgAIKZi1apAvFaIP4IxP8HGH+EukWVAR8AKlAH4veDwMHoGOQmdXwOXwtVuA2IJRkGGIDcAHULyE1r8SmEJY8BdzSa40Fu+oxPEThqGAYZIOiuEeVwoPoyIH4OxWVE6mkF4i9AfBWIg+nucKBaDywlgAcBPVlo6v8BcSi9HV6IxeEFeNRL4Kgf3uMrEGjhcA0g/obkgO8gMTzq5+Apq+fRO41bAvFCIJ4LYhOo3H7jcfhfINahTe5FLVsVSTR7BRE15FqaOBwoxwbE06GhA1K7BIiZiTDXGJoJCTkcpMYAi/4jQHyYLIdDHb0Di2XlRDh8Pwntkk1UTeNA8Uk4LPoBxLp4zEwksUEFCnUTqjgcKOZOIKqvAzE/Fn0qQPyBjNbgFoodDuRzAPE9Iiw7B8RySPpA7fo7RDp0G9XLcSC/hoSQApXpq4F4HTQJEatPkqo1J5AtQo+eEJJ9h8nQfxibw9vo0cOh0OFHsDn8A526ZlRPKifo5PCtoAYYJQ4fdF03Yh2+lpgQGIwO1xhMwxMkNf6gzU9QyH8aRA4/Ai49cAAAVzZmwRFfokoAAAAASUVORK5CYII=); */
+    background-repeat: no-repeat;
+    transition: background-image .2s ease
+}
+
+#space-theme .toutu-item.upload-toutu .upload-tips {
+    line-height: 20px;
+    margin-top: 5px;
+    text-align: center;
+    font-size: 12px;
+    white-space: nowrap
+}
+
+#space-theme .toutu-item.upload-toutu .upload-tips.u-tips2 {
+    display: none
+}
+
+#space-theme .toutu-item.upload-toutu .upload-input {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    cursor: pointer
+}
+
+#space-theme .toutu-item .vip-icon {
+    position: absolute;
+    top: -3px;
+    right: -3px;
+    width: 57px;
+    height: 57px;
+    /* background-image: url(//s1.hdslb.com/bfs/static/jinkela/space/assets/vip-tag.png); */
+    background-repeat: no-repeat
+}
+
+#space-theme .toutu-item .selected-icon {
+    display: none;
+    /* background-image: url(//s1.hdslb.com/bfs/static/jinkela/space/assets/icons.png); */
+    background-position: -642px -650px;
+    content: "";
+    position: absolute;
+    width: 45px;
+    height: 45px;
+    top: -3px;
+    right: 0
+}
+
+.clearfix:after {
+    content: ".";
+    display: block;
+    height: 0;
+    clear: both;
+    visibility: hidden
+}
+
+* html .clearfix {
+    height: 1%
+}
+
+.be-scrollbar-wrapper {
+    position: relative
+}
+
+.clearfix {
+    display: block
+}
