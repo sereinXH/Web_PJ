@@ -203,8 +203,7 @@ async function AI_chat(message) {
             body: JSON.stringify({ message: message })
         });
         const data = await response.json();
-        console.log(data.response);
-        //reply = data.response;
+        window.alert(data.response)
     } catch (error) {
         console.error('Error:', error);
     }
