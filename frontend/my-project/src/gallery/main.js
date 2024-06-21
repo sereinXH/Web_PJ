@@ -203,7 +203,7 @@ async function AI_chat(message) {
             body: JSON.stringify({ message: message })
         });
         const data = await response.json();
-        window.alert(data.response)
+        window.alert(data.response);
     } catch (error) {
         console.error('Error:', error);
     }
@@ -504,6 +504,48 @@ viewRaycaster.far = 5;
 let focusedObject = null;
 let focusTimer = null;
 
+// 歌曲列表
+const songs = [
+    "work.mp3",
+    "ain't no time.mp3",
+    "famous.mp3",
+    "formation.mp3",
+    "hello.mp3",
+    "hotline bling.mp3",
+    "invitation.mp3",
+    "side to side.mp3",
+    "voodoo.mp3",
+    "what do you mean_.mp3"
+];
+
+const covers = [
+    "anti.jpg",
+    "evol.jpg",
+    "thelifeofpoblo.jpg",
+    "lemonade.jpg",
+    "25.jpg",
+    "views.jpg",
+    "glory.jpg",
+    "dangerouswoman.jpg",
+    "lastyearwascomplicated.jpg",
+    "purpose.jpg"
+]
+
+const singers =[
+    "Rihanna",
+    "Future",
+    "Ye",
+    "Beyoncé",
+    "Adele",
+    "Drake",
+    "Britney Spears",
+    "Ariana Grande",
+    "Nick Jonas",
+    "Justin Bieber"
+]
+
+let currentSongIndex = 0;
+
 // 创建提示信息元素
 const infoDiv = document.createElement('div');
 infoDiv.innerText = '按Enter了解更多';
@@ -537,7 +579,7 @@ musicPlayerDiv.style.display = 'none';
 musicPlayerDiv.style.zIndex = '99';
 musicPlayerDiv.innerHTML = `
     <div class="cover">
-        <img src="../../public/images/songs/anti.jpg" alt="">
+        <img src="../../public/images/songs/${covers[currentSongIndex]}" alt="">
     </div>
     <div class="info">
         <div class="title">work</div>
@@ -554,9 +596,9 @@ musicPlayerDiv.innerHTML = `
         <i class="material-icons volume">volume_up</i>
     </div>
     <div class="music-box">
-        <input type="range" class="seekbar" step="1" value="0" min="0" max="100" oninput="handleSeekBar()">
+        <input type="range" class="seekbar" step="1" value="0" min="0" max="100">
         <audio class="music-element">
-            <source src="../../public/music/work.mp3">
+            <source src="../../public/music/${songs[currentSongIndex]}">
         </audio>
         <span class="current-time">0:0</span><span class="duration">0:0</span>
         <span class="play"><i class="material-icons">play_arrow</i></span>
@@ -685,10 +727,47 @@ function checkForObjectsInView() {
 document.addEventListener('keydown', (event) => {
     if (event.key === 'Enter' && infoDiv.style.display === 'block') {
         if (focusedObject) {
+            console.log(focusedObject.name);
+            if (focusedObject.name == 'Box 7') {
+                currentSongIndex = 0;
+            } else if (focusedObject.name == 'Box 8') {
+                currentSongIndex = 0;
+            } else if (focusedObject.name == 'Object_4') {
+                currentSongIndex = 0;
+            } else if (focusedObject.name == 'Box 4') {
+                currentSongIndex = 1;
+            } else if (focusedObject.name == 'Object_13') {
+                currentSongIndex = 6;
+            } else if (focusedObject.name == 'Object_15') {
+                currentSongIndex = 8;
+            } else if (focusedObject.name == 'Box 9') {
+                currentSongIndex = 5;
+            } else if (focusedObject.name == 'Object_12') {
+                currentSongIndex = 2;
+            } else if (focusedObject.name == 'Object_18') {
+                currentSongIndex = 9;
+            } else if (focusedObject.name == 'Box 1') {
+                currentSongIndex = 3;
+            } else {
+                currentSongIndex = 4;
+            }
+            updateMusicPlayer();
             musicPlayerDiv.style.display = 'block';
+            playNextSong();
         }
     }
 });
+
+// 更新音乐播放器信息
+function updateMusicPlayer() {
+    const cover = document.querySelector('.cover img');
+    const title = document.querySelector('.title');
+    const singer = document.querySelector('.singer');
+
+    cover.src = `../../public/images/songs/${covers[currentSongIndex]}`;
+    title.textContent = songs[currentSongIndex].split('.mp3')[0];
+    singer.textContent = singers[currentSongIndex];
+}
 
 // 按下x键关闭音乐播放器
 document.addEventListener('keydown', (event) => {
@@ -696,6 +775,14 @@ document.addEventListener('keydown', (event) => {
         musicPlayerDiv.style.display = 'none';
     }
 });
+
+// 播放下一首歌
+function playNextSong() {
+    music.pause();
+    document.querySelector('.music-element source').src = `../../public/music/${songs[currentSongIndex]}`;
+    music.load();
+    music.play();
+}
 
 // 渲染循环
 function animate() {
